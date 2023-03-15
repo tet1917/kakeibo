@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>kakeibo</title>
+</head>
+
+<body>
+	<form action="kakeibo_user.html">
+		<h1>
+			家計簿ユーザー選択
+		</h1>
+		<span>ユーザ:</span>
+		<select name="selecteduser" id="selecteduser">
+			<option th:each="user : ${userslist}" th:value="${user.userid}" th:inline="text">[[${user.usernm}]]</option>
+		</select>
+		<br>
+		<input type="submit" value="家計簿へ" />
+	</form>
+</body>
+
+</html>
