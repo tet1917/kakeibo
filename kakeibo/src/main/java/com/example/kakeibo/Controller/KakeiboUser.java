@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.kakeibo.Service.KakeiboUserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 @Controller
 public class KakeiboUser {
@@ -15,10 +17,8 @@ public class KakeiboUser {
 	}
 
 	@GetMapping("/kakeibouser")
-	public String readKakeiboUser(Model model) {
-
-		//		kakeiboUserService
-
-		return "kakeibo_user.html";
+	public String readKakeiboUser(Model model) throws JsonMappingException, JsonProcessingException {
+		model.addAttribute("userlist", kakeiboUserService.getUsers().getuserList())	;
+		return"kakeibo_user.html";
 	}
 }

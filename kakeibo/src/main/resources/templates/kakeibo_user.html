@@ -13,7 +13,7 @@
 		</h1>
 		<span>ユーザ:</span>
 		<select name="selecteduser" id="selecteduser">
-			<option th:each="user : ${userslist}" th:value="${user.userid}" th:inline="text">[[${user.usernm}]]</option>
+			<option th:each="user : ${userlist}" th:value="${user.userId}" th:inline="text">[[${user.userId}]].[[${user.userNm}]]</option>
 		</select>
 		<br>
 		<input type="submit" value="家計簿へ" />
