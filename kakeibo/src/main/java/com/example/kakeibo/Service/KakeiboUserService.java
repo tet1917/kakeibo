@@ -15,7 +15,7 @@ public class KakeiboUserService {
 	}
 	public KakeiboUserEntity getUsers() throws JsonMappingException, JsonProcessingException {
 		KakeiboUserEntity kakeiboUserEntity = new KakeiboUserEntity();
-		kakeiboUserEntity = getUserRepository.getUsers();
+		kakeiboUserEntity = getUserRepository.getUsers(0);
 		return kakeiboUserEntity;
 	}
 }

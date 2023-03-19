@@ -3,7 +3,6 @@ package com.example.kakeibo.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.kakeibo.Service.KakeiboUserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -24,9 +23,9 @@ public class KakeiboUser {
 	}
 
 	
-	@PostMapping("/KakeiboGetUser.html")
-	public String postKakeiboUser(Model model) throws JsonMappingException, JsonProcessingException {
-		model.addAttribute("userlist", kakeiboUserService.getUsers().getuserList())	;
-		return"KakeiboGetUser.html";
-	}
+//	@PostMapping("/KakeiboGetUser.html")
+//	public String postKakeiboUser(Model model) throws JsonMappingException, JsonProcessingException {
+//		model.addAttribute("userlist", kakeiboUserService.getUsers().getuserList())	;
+//		return"KakeiboGetUser.html";
+//	}
 }

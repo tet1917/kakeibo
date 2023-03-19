@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Repository
 public class GetUserRepository {
-	public KakeiboUserEntity getUsers() throws JsonMappingException, JsonProcessingException {
+	public KakeiboUserEntity getUsers(int userId) throws JsonMappingException, JsonProcessingException {
 		RestTemplate temp = new RestTemplate();
 		String url = "https://1l9qmgyfm5.execute-api.ap-northeast-1.amazonaws.com/deafult/kakeibo/getusers";
 		
