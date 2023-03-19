@@ -7,7 +7,53 @@
 </head>
 
 <body>
-<!--	<p><span th:text="${username}"></span></p>-->
-</body>
+	<p><span th:text="${username}"></span></p>
+	<table>
+		<tr>
+			<th>編集</th>
+			<th>日付</th>
+			<th>用途</th>
+			<th>金額</th>
+		</tr>
+		<tr>
+			<td>
+				<form action="#" method="get">
+
+				</form>
+			</td>
+			<td>
+				<th:block th:each="accountdate : ${accountdate}">
+					<p th:text="${accountdate}"></p>
+				</th:block>
+			</td>
+			<td>
+				<th:block th:each="account : ${account}">
+					<p th:text="${account}"></p>
+				</th:block>
+			</td>
+			<td>
+				<th:block th:each="amount : ${amount}">
+					<p th:text="${amount}"></p>
+				</th:block>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<form action="#" method="get">
+
+				</form>
+			</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>合計</td>
+			<td></td>
+			<td></td>
+			<td><span th:text="${totalAmount}"></span></td>
+		</tr>
+	</table>
 
 </html>
