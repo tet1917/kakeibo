@@ -18,7 +18,7 @@ public class KakeiboUser {
 
 	@GetMapping("/kakeibouser")
 	public String readKakeiboUser(Model model) throws JsonMappingException, JsonProcessingException {
-		model.addAttribute("userlist", kakeiboUserService.getUsers().getuserList())	;
+		model.addAttribute("userlist", kakeiboUserService.getUsers().getuserList().get(0).getUserNm())	;
 		return"kakeibo_user.html";
 	}
 
