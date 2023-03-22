@@ -13,14 +13,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class GetUserRepository {
 	public KakeiboUserEntity getUsers(int userId) throws JsonMappingException, JsonProcessingException {
 		RestTemplate temp = new RestTemplate();
-		String url = "https://1l9qmgyfm5.execute-api.ap-northeast-1.amazonaws.com/deafult/kakeibo/getusers";
-		
-		ResponseEntity<String> res = temp.getForEntity(url,String.class);
+		String url = "https://1l9qmgyfm5.execute-api.ap-northeast-1.amazonaws.com/deafult/kakeibo/getusers?p1="
+				+ userId;
+		ResponseEntity<String> res = temp.getForEntity(url, String.class);
 		String json = res.getBody();
-		ObjectMapper mapper =new ObjectMapper();
+		ObjectMapper mapper = new ObjectMapper();
 		KakeiboUserEntity ent = new KakeiboUserEntity();
 		ent = mapper.readValue(json, KakeiboUserEntity.class);
 		return ent;
-	} 
-
+	}
 }

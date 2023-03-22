@@ -10,12 +10,14 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 @Service
 public class KakeiboUserService {
 	private final GetUserRepository getUserRepository;
+
 	public KakeiboUserService(GetUserRepository getUserRepository) {
 		this.getUserRepository = getUserRepository;
 	}
-	public KakeiboUserEntity getUsers() throws JsonMappingException, JsonProcessingException {
+
+	public KakeiboUserEntity getUsers(int userId) throws JsonMappingException, JsonProcessingException {
 		KakeiboUserEntity kakeiboUserEntity = new KakeiboUserEntity();
-		kakeiboUserEntity = getUserRepository.getUsers(0);
+		kakeiboUserEntity = getUserRepository.getUsers(userId);
 		return kakeiboUserEntity;
 	}
 }
