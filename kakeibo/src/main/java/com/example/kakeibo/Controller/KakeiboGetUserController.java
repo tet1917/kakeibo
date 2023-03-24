@@ -1,9 +1,13 @@
 package com.example.kakeibo.Controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.kakeibo.Service.KakeiboGetUserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 @Controller
 public class KakeiboGetUserController {
@@ -13,10 +17,14 @@ public class KakeiboGetUserController {
 		this.kakeiboGetUserService = kakeiboGetUserService;
 	}
 
-	@GetMapping("/KakeiboGetUser")
-	public String kakiboGet() {
+	@PostMapping("/KakeiboGetUser")
+	public String kakeibopostuser(@RequestParam("selecteduser") int p1, Model model)
+			throws JsonMappingException, JsonProcessingException {
+		model.addAttribute("selected", kakeiboGetUserService.getUsers(p1).getuserList().get(0).getUserNm());
+		model.addAttribute("data" , kakeiboGetUserService.getDataUsers(p1).getkakeiboList());
 		return "KakeiboGetUser.html";
 	}
+
 	//	@PostMapping("/KakeiboGetUser")
 	//	public String kakeibouse(Model model) {
 	//		model.addAttribute("");

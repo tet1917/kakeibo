@@ -1,6 +1,7 @@
 package com.example.kakeibo.data;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -11,32 +12,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class UserData {
-	@JsonProperty("userid")
-	private int userId;
-	@JsonProperty("usernm")
-	private String userNm;
+public class KakeiboUserDataEntity {
+
+	@JsonProperty("kakeibolist")
+	private List<KakeiboUserData> kakeiboList;
 	@JsonIgnore
 	private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
-	@JsonProperty("userid")
-	public int getUserId() {
-		return userId;
+	@JsonProperty("kakeibolist")
+	public List<KakeiboUserData> getkakeiboList() {
+		return kakeiboList;
 	}
 
-	@JsonProperty("userid")
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	@JsonProperty("usernm")
-	public String getUserNm() {
-		return userNm;
-	}
-
-	@JsonProperty("usernm")
-	public void setUserNm(String userNm) {
-		this.userNm = userNm;
+	@JsonProperty("kakeibolist")
+	public void setkakeiboList(List<KakeiboUserData> kakeibolist) {
+		this.kakeiboList = kakeibolist;
 	}
 
 	@JsonAnyGetter
@@ -48,6 +38,4 @@ public class UserData {
 	public void setAdditionalProperty(String name, Object value) {
 		this.additionalProperties.put(name, value);
 	}
-
 }
-
