@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class KakeiboUserData {
+public class KakeiboAccountData {
 	@JsonProperty("id")
 	private int id;
 	@JsonProperty("userid")

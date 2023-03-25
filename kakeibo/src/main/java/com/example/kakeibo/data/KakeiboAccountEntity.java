@@ -12,21 +12,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class KakeiboUserDataEntity {
+public class KakeiboAccountEntity {
 
 	@JsonProperty("kakeibolist")
-	private List<KakeiboUserData> kakeiboList;
+	private List<KakeiboAccountData> kakeiboList;
 	@JsonIgnore
 	private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
 	@JsonProperty("kakeibolist")
-	public List<KakeiboUserData> getkakeiboList() {
+	public List<KakeiboAccountData> getkakeiboList() {
 		return kakeiboList;
 	}
 
 	@JsonProperty("kakeibolist")
-	public void setkakeiboList(List<KakeiboUserData> kakeibolist) {
+	public void setkakeiboList(List<KakeiboAccountData> kakeibolist) {
 		this.kakeiboList = kakeibolist;
+	}
+
+	public int getTotalAccount() {
+//		int size = getkakeiboList().size();
+//
+		int total = 0;
+//		for (int i = 0; i < size; i++) {
+//			// int data =
+//			total += getkakeiboList().get(i).getAmount();
+//		}
+		
+		for(KakeiboAccountData data:getkakeiboList()) {
+			total += data.getAmount();
+		}
+		return total;
 	}
 
 	@JsonAnyGetter
