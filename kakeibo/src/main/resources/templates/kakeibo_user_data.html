@@ -17,21 +17,21 @@
 		</tr>
 		<tr th:each="data : ${kakeiboList}">
 			<td>
-				<form action="kakeiboSubmitData.html" method="post">
-					<input type="submit" value="修正" name="edit">
+				<form action="kakeibo_update" method="post">
+					<input type="hidden" th:value="${data.userId}" name="userId">
+					<input type="hidden" th:value="${data.id}" name="id">
+					<input type="submit" value="修正">
 				</form>
 			</td>
 			<td th:text="${data.accountDate}">
-				<!--				<th:block th:each="accountdate : ${accountdate}">-->
-				<!--				</th:block>-->
 			</td>
 			<td th:text="${data.account}"></td>
 			<td th:text="${data.amount}"></td>
 		</tr>
 		<tr>
 			<td>
-				<form action="kakeiboSubmitData.html" method="post">
-					<input type="submit" value="新規" name="add">
+				<form action="kakeibo_update" method="post">
+					<input type="submit" value="新規">
 				</form>
 			</td>
 			<td></td>

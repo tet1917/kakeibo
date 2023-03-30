@@ -1,5 +1,8 @@
 package com.example.kakeibo.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.stereotype.Service;
 
 import com.example.kakeibo.Repository.GetAccountRepository;
@@ -25,9 +28,19 @@ public class KakeiboUserService {
 		return kakeiboUserEntity;
 	}
 	
-	public KakeiboAccountEntity getAccount(int userId) throws JsonMappingException, JsonProcessingException {
+	public KakeiboAccountEntity getAccount(int userId,int id) throws JsonMappingException, JsonProcessingException {
 		KakeiboAccountEntity kakeiboAccountEntity = new KakeiboAccountEntity();
-		kakeiboAccountEntity = getAccountRepository.getUsersData(userId);
+		kakeiboAccountEntity = getAccountRepository.getUsersData(userId ,id);
 		return kakeiboAccountEntity;
+	}
+	
+	public Date dateChange(String accountDate) {
+	  try{
+		    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		    sdf.setLenient(false);
+		    return sdf.parse(accountDate);
+		  }catch(Exception ex){
+		    return null;
+		  }
 	}
 }

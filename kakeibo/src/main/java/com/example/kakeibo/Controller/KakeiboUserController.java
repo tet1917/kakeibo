@@ -29,7 +29,7 @@ public class KakeiboUserController {
 	public String kakeibopostuser(@RequestParam("selecteduser") int p1, Model model)
 			throws JsonMappingException, JsonProcessingException {
 		model.addAttribute("selecteduser", kakeiboUserService.getUsers(p1).getuserList().get(0).getUserNm());
-		KakeiboAccountEntity entity = kakeiboUserService.getAccount(p1);
+		KakeiboAccountEntity entity = kakeiboUserService.getAccount(p1,0);
 		model.addAttribute("kakeiboList",entity.getkakeiboList());
 		model.addAttribute("total", entity.getTotalAccount());
 		

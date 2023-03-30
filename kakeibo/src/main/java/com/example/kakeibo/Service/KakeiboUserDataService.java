@@ -3,25 +3,21 @@ package com.example.kakeibo.Service;
 import org.springframework.stereotype.Service;
 
 import com.example.kakeibo.Repository.GetAccountRepository;
-import com.example.kakeibo.Repository.GetUserRepository;
-import com.example.kakeibo.data.KakeiboUserEntity;
+import com.example.kakeibo.data.KakeiboAccountEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 @Service
 public class KakeiboUserDataService {
 	private final GetAccountRepository getAccountRepository;
-	private final GetUserRepository getUserRepository;
 
-	public KakeiboUserDataService(GetAccountRepository getAccountRepository,
-			GetUserRepository getUserRepository) {
+	public KakeiboUserDataService(GetAccountRepository getAccountRepository) {
 		this.getAccountRepository = getAccountRepository;
-		this.getUserRepository = getUserRepository;
 	}
 
-	public KakeiboUserEntity getUsers(int userId) throws JsonMappingException, JsonProcessingException {
-		KakeiboUserEntity kakeiboUserEntity = new KakeiboUserEntity();
-		kakeiboUserEntity = getUserRepository.getUsers(userId);
-		return kakeiboUserEntity;
+	public KakeiboAccountEntity getUsers(int userId, int id) throws JsonMappingException, JsonProcessingException {
+		KakeiboAccountEntity kakeiboAccountEntity = new KakeiboAccountEntity();
+		kakeiboAccountEntity = getAccountRepository.getUsersData(userId, id);
+		return kakeiboAccountEntity;
 	}
 }

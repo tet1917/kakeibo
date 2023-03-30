@@ -11,10 +11,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Repository
 public class GetAccountRepository {
-	public KakeiboAccountEntity getUsersData(int userId) throws JsonMappingException, JsonProcessingException {
+	public KakeiboAccountEntity getUsersData(int userId,int id) throws JsonMappingException, JsonProcessingException {
 		RestTemplate temp = new RestTemplate();
 		String url = "https://1l9qmgyfm5.execute-api.ap-northeast-1.amazonaws.com/deafult/kakeibo/getacount?p1="
-				+ userId;
+				+ userId +"&p2="+id;
 
 		ResponseEntity<String> res = temp.getForEntity(url, String.class);
 		String json = res.getBody();
